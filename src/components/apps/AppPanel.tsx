@@ -4,11 +4,13 @@ import { useApps } from "../../hooks/useApps";
 import { appIcons } from "../../constants/appIcons";
 import { AppErrorState } from "./AppErrorState";
 import { AppSkeletonList } from "./AppSkeletonList";
+import { useBuilderStore } from "../../store/useBuilderStore";
 
 
 const AppPanel = () => {
     const [searchQuery, setSearchQuery] = useState('');
-    const [selectedAppId, setSelectedAppId] = useState('payments');
+    const selectedAppId = useBuilderStore((state)=>state.selectedAppId)
+    const setSelectedAppId = useBuilderStore((state)=>state.setSelectedAppId)
 
     const { data, isLoading, error } = useApps();
    
