@@ -6,11 +6,7 @@ import { NodeGraph } from './components/canvas/NodeGraph';
 import RightPanel from './components/layout/RightPanel';
 
 function App() {
-  const [activeCanvasTool, setActiveCanvasTool] = useState('pointer');
   const [zoomPercent, setZoomPercent] = useState(100);
-
-
-
 
   return (
     <div className="w-screen h-screen flex flex-col bg-bg-dark text-zinc-100 font-sans overflow-hidden">
@@ -38,7 +34,7 @@ function App() {
           >
             <NodeGraph />
           </div>
-          <CanvasControls setActiveCanvasTool={setActiveCanvasTool} activeCanvasTool={activeCanvasTool} setZoomPercent={setZoomPercent} zoomPercent={zoomPercent} />
+          <CanvasControls setZoomPercent={setZoomPercent} zoomPercent={zoomPercent} />
         </main>
         <RightPanel />
       </div>

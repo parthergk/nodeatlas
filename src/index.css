@@ -109,3 +109,26 @@
 .animate-edge-flow {
   animation: edgeFlow 1.2s linear infinite;
 }
+.hand-mode {
+  cursor: grab !important;
+}
+
+.hand-mode * {
+  cursor: grab !important;
+}
+
+.hand-mode:active {
+  cursor: grabbing !important;
+}
+
+.hand-mode:active * {
+  cursor: grabbing !important;
+}
+
+.pointer-mode {
+  cursor: default !important;
+}
+
+.pointer-mode * {
+  cursor: default !important;
+}

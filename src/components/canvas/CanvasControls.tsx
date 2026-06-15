@@ -1,25 +1,26 @@
 import React from "react";
 import { Hand, Minus, MousePointer, Plus } from "lucide-react";
+import { useBuilderStore } from "../../store/useBuilderStore";
 
 interface CanvasControlsProps {
-  setActiveCanvasTool: (tool: string) => void;
-  activeCanvasTool: string;
   setZoomPercent: React.Dispatch<React.SetStateAction<number>>;
   zoomPercent: number;
 }
 
 export const CanvasControls: React.FC<CanvasControlsProps> = ({
-  setActiveCanvasTool,
-  activeCanvasTool,
+
   setZoomPercent,
   zoomPercent,
 }) => {
+    const setActiveTool = useBuilderStore((state) => state.setActiveTool);
+  const activeTool = useBuilderStore((state) => state.activeTool);
+
   return (
     <div className="absolute top-4 left-4 bg-bg-panel border border-border-dark rounded-xl p-1.5 flex justify-center items-center gap-1 shadow-lg shadow-black/40 z-10 select-none">
       <button
-        onClick={() => setActiveCanvasTool("pointer")}
+        onClick={() => setActiveTool("pointer")}
         className={`p-2 rounded-lg transition-colors cursor-pointer ${
-          activeCanvasTool === "pointer"
+          activeTool === "pointer"
             ? "bg-bg-active text-white"
             : "text-text-muted hover:text-white"
         }`}
@@ -28,9 +29,9 @@ export const CanvasControls: React.FC<CanvasControlsProps> = ({
         <MousePointer className="w-4 h-4" />
       </button>
       <button
-        onClick={() => setActiveCanvasTool("hand")}
+        onClick={() => setActiveTool("hand")}
         className={`p-2 rounded-lg transition-colors cursor-pointer ${
-          activeCanvasTool === "hand"
+          activeTool === "hand"
             ? "bg-bg-active text-white"
             : "text-text-muted hover:text-white"
         }`}

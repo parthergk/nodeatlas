@@ -19,9 +19,11 @@ const nodeTypes = {
 
 
 export function NodeGraph() {
+  const setSelectedNodeId = useBuilderStore((state) => state.setSelectedNodeId);
+  const activeTool = useBuilderStore((state) => state.activeTool);
   const selectedAppId = useBuilderStore((state) => state.selectedAppId);
   const { data, isLoading, error } = useGraph(selectedAppId);
-  const setSelectedNodeId = useBuilderStore((state) => state.setSelectedNodeId);
+
 
   const [nodes, setNodes, onNodesChange] = useNodesState<Node>([]);
   const [edges, setEdges, onEdgesChange] = useEdgesState<Edge>([]);
@@ -51,11 +53,28 @@ export function NodeGraph() {
   }
 
   return (
-    <div className="h-full w-full">
+    <div className={`h-full w-full ${activeTool === "hand"
+        ? "cursor-grab"
+        : "cursor-default"
+      }`}>
       <ReactFlow
+        className={
+          activeTool === "hand"
+            ? "hand-mode"
+            : "pointer-mode"
+        }
         nodes={nodes}
         edges={edges}
         nodeTypes={nodeTypes}
+        nodesDraggable={
+          activeTool === "pointer"
+        }
+        elementsSelectable={
+          activeTool === "pointer"
+        }
+        panOnDrag={
+          activeTool === "hand"
+        }
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onNodeClick={handleNodeClick}

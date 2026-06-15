@@ -1,6 +1,6 @@
 import { create } from "zustand";
 
-type CanvaTools = "pointer" | "hand";
+export type CanvaTools = "pointer" | "hand";
 
 interface BuilderState {
     selectedAppId: string;
@@ -13,6 +13,7 @@ interface BuilderState {
     setSelectedNodeId: (id: string | null) => void;
     setIsMobilePanelOpen: (open: boolean) => void;
     setActiveInspectorTab: (tab: string) => void;
+    setActiveTool: (tool: CanvaTools) => void;
 }
 
 export const useBuilderStore = create<BuilderState>((set) => ({
@@ -26,5 +27,5 @@ export const useBuilderStore = create<BuilderState>((set) => ({
     setSelectedNodeId: (id: string | null) => set({ selectedNodeId: id }),
     setIsMobilePanelOpen: (open: boolean) => set({ isMobilePanelOpen: open }),
     setActiveInspectorTab: (tab: string) => set({ activeInspectorTab: tab }),
-    setActiveTool: (tool: CanvaTools) => set({ activeTool: tool }),
+    setActiveTool: (tool: CanvaTools) => set({ activeTool: tool })
 }));
