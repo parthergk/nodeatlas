@@ -19,16 +19,4 @@ export const apps: AppItem[] = [
     type: "cart",
     status: "healthy",
   },
-  {
-    id: "inventory",
-    name: "Inventory",
-    type: "box",
-    status: "healthy",
-  },
-  {
-    id: "notification",
-    name: "Notification",
-    type: "bell",
-    status: "healthy",
-  },
 ];

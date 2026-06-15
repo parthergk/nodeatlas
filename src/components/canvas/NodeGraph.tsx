@@ -53,10 +53,7 @@ export function NodeGraph() {
   }
 
   return (
-    <div className={`h-full w-full ${activeTool === "hand"
-        ? "cursor-grab"
-        : "cursor-default"
-      }`}>
+    <div className="h-full w-full">
       <ReactFlow
         className={
           activeTool === "hand"
