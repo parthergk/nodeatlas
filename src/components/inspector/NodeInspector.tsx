@@ -7,11 +7,10 @@ import { useBuilderStore } from '@/store/useBuilderStore';
 export const NodeInspector = () => {
   const nodes = useBuilderStore((state)=> state.graphNodes);
   const selectedNodeId = useBuilderStore((state)=> state.selectedNodeId);
-  const setGraphNodes = useBuilderStore((state)=> state.setGraphNodes);
 
   const selectedNode = nodes.find((node)=> node.id === selectedNodeId);
 
-  const [activeTab, setActiveTab] = useState<'config' | 'runtime'>('runtime');
+  const [activeTab, setActiveTab] = useState<'config' | 'runtime'>('config');
 
   // Status badge classes
   const statusColors = {
@@ -22,29 +21,13 @@ export const NodeInspector = () => {
 
   if (!selectedNode) {
     return (
-      <aside className="mt-4 py-8 text-center text-text-muted text-xs border-t border-border-dark font-sans">
+      <aside className="py-5  text-center text-text-muted text-xs border-t border-border-dark font-sans">
         Select a node to inspect properties.
       </aside>
     );
   }
 
   const currentStatus = statusColors[selectedNode.data.status] || statusColors.healthy;
-
-  const handleCapacityChange = (value: number) => {
-    const updatedNodes = nodes.map((n) => {
-      if (n.id === selectedNode.id) {
-        return {
-          ...n,
-          data: {
-            ...n.data,
-            capacity: value,
-          },
-        };
-      }
-      return n;
-    });
-    setGraphNodes(updatedNodes);
-  };
 
   return (
     <aside className=" mt-4 py-3 bg-bg-panel border-t border-border-dark flex flex-col select-none">
@@ -97,8 +80,6 @@ export const NodeInspector = () => {
         ) : (
           <ConfigurationTab
             node={selectedNode}
-            capacity={selectedNode.data.capacity}
-            setCapacity={handleCapacityChange}
           />
         )}
       </div>
