@@ -1,4 +1,4 @@
-# App Graph Builder
+# NodeAtlas
 
 A modern, highly interactive web application designed to visualize, inspect, and configure microservice architectures and topologies. The project leverages **React Flow (XYFlow)** for dynamic canvas orchestration, **Zustand** for transient UI states, and **TanStack Query** for asynchronous mock API data synchronization. It features a developer-centric aesthetic with seamless dark/light modes and fluid micro-animations.
 
@@ -9,13 +9,13 @@ A modern, highly interactive web application designed to visualize, inspect, and
 > [!NOTE]
 > *Deploy your project to a hosting provider (such as Vercel, Netlify, or AWS) and insert your live link and screenshots below.*
 
-- **Live Demo:** [View Live Site Placeholder](https://your-demo-link.com)
+- **Live Demo:** [View Live Site](https://nodeatlas.vercel.app)
 
 ### Application Mockups
 
 | Dark Mode (Default) | Light Mode |
 | :---: | :---: |
-| ![Dark Mode Canvas](https://placehold.co/600x400/08080a/ffffff?text=Canvas+Dark+Mode) | ![Light Mode Canvas](https://placehold.co/600x400/f8fafc/000000?text=Canvas+Light+Mode) |
+| ![Dark Mode Canvas](public/dark.png) | ![Light Mode Canvas](public/light.png) |
 
 ---
 

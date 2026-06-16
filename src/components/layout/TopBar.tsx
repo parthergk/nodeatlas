@@ -20,7 +20,7 @@ export const TopBar: React.FC<TopBarProps> = ({
     <header className="w-full h-16 bg-bg-panel border-b border-border-dark flex items-center justify-between px-4 sm:px-6 select-none z-50 shadow-[0_1px_2px_rgba(0,0,0,0.02)] dark:shadow-none">
       {/* Left side: Brand Logo and Title */}
       <div className="flex items-center gap-4">
-        {/* Custom Node Graph Builder Logo */}
+        {/* Custom NodeAtlas Logo */}
         <div className="flex items-center gap-3">
           <div className="flex items-center justify-center text-foreground">
             <svg
@@ -29,16 +29,27 @@ export const TopBar: React.FC<TopBarProps> = ({
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <line x1="12" y1="6" x2="6" y2="18" stroke="currentColor" strokeWidth="2" />
-              <line x1="12" y1="6" x2="18" y2="18" stroke="currentColor" strokeWidth="2" />
-              <line x1="6" y1="18" x2="18" y2="18" stroke="currentColor" strokeWidth="2" />
-              <circle cx="12" cy="6" r="3" fill="currentColor" />
-              <circle cx="6" cy="18" r="3" fill="currentColor" />
-              <circle cx="18" cy="18" r="3" fill="currentColor" />
+              {/* Globe contours (Atlas concept) */}
+              <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.2" />
+              <path d="M12 2a14 14 0 0 1 3.5 10A14 14 0 0 1 12 22a14 14 0 0 1-3.5-10A14 14 0 0 1 12 2z" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.25" />
+              <path d="M2 12h20" stroke="currentColor" strokeWidth="1" fill="none" opacity="0.25" />
+              
+              {/* Node Atlas active network overlay */}
+              <line x1="12" y1="5" x2="17" y2="10" stroke="currentColor" strokeWidth="1.75" />
+              <line x1="17" y1="10" x2="13" y2="18" stroke="currentColor" strokeWidth="1.75" />
+              <line x1="13" y1="18" x2="7" y2="13" stroke="currentColor" strokeWidth="1.75" />
+              <line x1="7" y1="13" x2="12" y2="5" stroke="currentColor" strokeWidth="1.75" />
+              <line x1="12" y1="5" x2="13" y2="18" stroke="currentColor" strokeWidth="1.25" strokeDasharray="2 2" />
+              
+              {/* Intersecting Nodes */}
+              <circle cx="12" cy="5" r="2" fill="currentColor" />
+              <circle cx="17" cy="10" r="2" fill="currentColor" />
+              <circle cx="13" cy="18" r="2" fill="currentColor" />
+              <circle cx="7" cy="13" r="2" fill="currentColor" />
             </svg>
           </div>
           <span className="font-sans font-semibold text-[17px] text-foreground tracking-wide hidden sm:inline">
-            App Graph Builder
+            NodeAtlas
           </span>
         </div>
       </div>
