@@ -6,8 +6,8 @@ export const AppSkeletonList = () => {
                     key={i} 
                     className="flex items-center gap-3 w-full p-3 rounded-xl border border-transparent bg-bg-active/40 animate-pulse"
                 >
-                    <div className="w-4.5 h-4.5 rounded bg-white/5" />
-                    <div className="h-3 bg-white/10 rounded w-24" />
+                    <div className="w-4.5 h-4.5 rounded bg-black/5 dark:bg-white/5" />
+                    <div className="h-3 bg-black/10 dark:bg-white/10 rounded w-24" />
                 </div>
             ))}
         </div>

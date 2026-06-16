@@ -14,6 +14,7 @@
   --color-bg-active: var(--bg-active);
   --color-border-dark: var(--border-dark);
   --color-text-muted: var(--text-muted);
+  --color-bg-rail: var(--bg-rail);
 }
 
 @layer base {
@@ -23,24 +24,30 @@
     @apply font-sans;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
     font-family: var(--font-display);
     letter-spacing: -0.02em;
   }
 
   /* Custom subtle background glow effect */
   body {
-    background-image: 
+    background-image:
       radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.05) 0px, transparent 50%),
       radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.05) 0px, transparent 50%);
     @apply bg-background text-foreground;
   }
 
   body.dark {
-    background-image: 
+    background-image:
       radial-gradient(at 0% 0%, rgba(99, 102, 241, 0.15) 0px, transparent 50%),
       radial-gradient(at 100% 100%, rgba(244, 63, 94, 0.1) 0px, transparent 50%);
   }
+
   * {
     @apply border-border outline-ring/50;
   }
@@ -66,9 +73,11 @@
   0% {
     background-position: 0% 50%;
   }
+
   50% {
     background-position: 100% 50%;
   }
+
   100% {
     background-position: 0% 50%;
   }
@@ -81,18 +90,24 @@
 
 /* Smooth logo float animations */
 @keyframes float {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-8px) rotate(3deg);
   }
 }
 
 @keyframes float-reverse {
-  0%, 100% {
+
+  0%,
+  100% {
     transform: translateY(0px) rotate(0deg);
   }
+
   50% {
     transform: translateY(-6px) rotate(-3deg);
   }
@@ -111,6 +126,7 @@
   from {
     stroke-dashoffset: 24;
   }
+
   to {
     stroke-dashoffset: 0;
   }
@@ -119,6 +135,7 @@
 .animate-edge-flow {
   animation: edgeFlow 1.2s linear infinite;
 }
+
 .hand-mode {
   cursor: grab !important;
 }
@@ -158,6 +175,12 @@
   --color-chart-4: var(--chart-4);
   --color-chart-3: var(--chart-3);
   --color-chart-2: var(--chart-2);
+  --color-bg-dark: var(--bg-dark);
+  --color-bg-panel: var(--bg-panel);
+  --color-bg-active: var(--bg-active);
+  --color-border-dark: var(--border-dark);
+  --color-text-muted: var(--text-muted);
+  --color-bg-rail: var(--bg-rail);
   --color-chart-1: var(--chart-1);
   --color-ring: var(--ring);
   --color-input: var(--input);
@@ -193,6 +216,9 @@
   --border-dark: #e4e4e7;
   --text-muted: #71717a;
   --grid-dots: rgba(9, 9, 11, 0.05);
+  --bg-rail: #ffffff;
+  --edge-color: #cbd5e1;
+  --edge-selected-color: oklch(0.205 0 0);
 
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -235,6 +261,9 @@
   --border-dark: #1f1f23;
   --text-muted: #8e9196;
   --grid-dots: rgba(255, 255, 255, 0.05);
+  --bg-rail: #050507;
+  --edge-color: #2d2d34;
+  --edge-selected-color: oklch(0.922 0 0);
 
   --background: oklch(0.145 0 0);
   --foreground: oklch(0.985 0 0);
@@ -266,5 +295,36 @@
   --sidebar-accent: oklch(0.269 0 0);
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
-  --sidebar-ring: oklch(0.556 0 0);
+}
+
+/* Premium Custom ReactFlow Visual Overrides */
+.react-flow__edge-path {
+  stroke: var(--edge-color) !important;
+  stroke-width: 2px !important;
+  transition: stroke 0.15s ease, stroke-width 0.15s ease;
+}
+
+.react-flow__edge.selected .react-flow__edge-path {
+  stroke: var(--edge-selected-color) !important;
+  stroke-width: 3px !important;
+}
+
+.react-flow__handle {
+  background: var(--primary) !important;
+  border: 2px solid var(--bg-panel) !important;
+  width: 8px !important;
+  height: 8px !important;
+  border-radius: 9999px !important;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.react-flow__handle:hover {
+  transform: scale(1.25);
+}
+
+.react-flow__attribution {
+  background: transparent !important;
+  color: var(--text-muted) !important;
+  font-size: 9px !important;
+  opacity: 0.5;
 }

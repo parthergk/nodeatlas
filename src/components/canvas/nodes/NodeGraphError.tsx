@@ -6,7 +6,7 @@ export function NodeGraphError({ message }: { message: string }) {
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 8.25h.008v.008H12v-.008Z" />
         </svg>
       </div>
-      <h3 className="text-lg font-semibold text-zinc-200 mb-2">Failed to Load Node Graph</h3>
+      <h3 className="text-lg font-semibold text-foreground mb-2">Failed to Load Node Graph</h3>
       <p className="text-sm text-text-muted max-w-md mb-6">{message}</p>
     </div>
   );

@@ -15,10 +15,10 @@ export function ServiceNode({
 
   return (
     <div
-      className={`relative min-w-[180px] rounded-xl border bg-white/80 dark:bg-neutral-900/30 text-foreground p-4 shadow-sm transition-all ${
+      className={`relative min-w-[180px] rounded-xl border bg-white/85 dark:bg-neutral-900/40 text-foreground p-4 shadow-sm transition-all ${
         selected
-        ? "border-border"
-          : "border-primary ring-2 ring-primary/20"
+          ? "border-primary ring-2 ring-primary/25 shadow-md shadow-black/5 dark:shadow-black/25"
+          : "border-border-dark dark:border-border-dark/60"
       }`}
     >
       <Handle type="target" position={Position.Left} />
@@ -39,9 +39,8 @@ export function ServiceNode({
 
           <div className="mt-1 flex items-center gap-2">
             <div
-              className={`h-2 w-2 rounded-full ${
-                statusColor[data.status]
-              }`}
+              className={`h-2 w-2 rounded-full ${statusColor[data.status]
+                }`}
             />
 
             <span className="text-xs text-muted-foreground capitalize">

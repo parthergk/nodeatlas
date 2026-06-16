@@ -5,18 +5,18 @@ import { useBuilderStore } from '@/store/useBuilderStore';
 
 
 export const NodeInspector = () => {
-  const nodes = useBuilderStore((state)=> state.graphNodes);
-  const selectedNodeId = useBuilderStore((state)=> state.selectedNodeId);
+  const nodes = useBuilderStore((state) => state.graphNodes);
+  const selectedNodeId = useBuilderStore((state) => state.selectedNodeId);
 
-  const selectedNode = nodes.find((node)=> node.id === selectedNodeId);
+  const selectedNode = nodes.find((node) => node.id === selectedNodeId);
 
   const [activeTab, setActiveTab] = useState<'config' | 'runtime'>('config');
 
   // Status badge classes
   const statusColors = {
-    healthy: { text: 'text-emerald-400', border: 'border-emerald-500/20', bg: 'bg-emerald-500/5', dot: 'bg-emerald-500' },
-    degraded: { text: 'text-amber-400', border: 'border-amber-500/20', bg: 'bg-amber-500/5', dot: 'bg-amber-500' },
-    down: { text: 'text-rose-400', border: 'border-rose-500/20', bg: 'bg-rose-500/5', dot: 'bg-rose-500' },
+    healthy: { text: 'text-emerald-600 dark:text-emerald-400', border: 'border-emerald-500/25', bg: 'bg-emerald-500/10 dark:bg-emerald-500/5', dot: 'bg-emerald-500' },
+    degraded: { text: 'text-amber-600 dark:text-amber-400', border: 'border-amber-500/25', bg: 'bg-amber-500/10 dark:bg-amber-500/5', dot: 'bg-amber-500' },
+    down: { text: 'text-rose-600 dark:text-rose-400', border: 'border-rose-500/25', bg: 'bg-rose-500/10 dark:bg-rose-500/5', dot: 'bg-rose-500' },
   };
 
   if (!selectedNode) {
@@ -34,7 +34,7 @@ export const NodeInspector = () => {
       {/* Panel Header */}
       <div className=" flex flex-col gap-1 ">
         <div className="flex items-center justify-between">
-          <h2 className="text-foreground text-base font-semibold font-sans">
+          <h2 className="text-white text-base font-semibold font-sans">
             {selectedNode.data.label}
           </h2>
           {/* Status Badge */}
@@ -54,21 +54,19 @@ export const NodeInspector = () => {
       <div className="flex border-b border-border-dark text-xs mt-3">
         <button
           onClick={() => setActiveTab('config')}
-          className={`flex-1 py-3 text-center font-medium cursor-pointer transition-all ${
-            activeTab === 'config'
-              ? 'text-foreground border-b-2 border-foreground'
-              : 'text-text-muted hover:text-foreground'
-          }`}
+          className={`flex-1 py-3 text-center font-medium cursor-pointer transition-all ${activeTab === 'config'
+              ? 'text-white border-b-2 border-white'
+              : 'text-text-muted hover:text-white'
+            }`}
         >
           Config
         </button>
         <button
           onClick={() => setActiveTab('runtime')}
-          className={`flex-1 py-3 text-center font-medium cursor-pointer transition-all ${
-            activeTab === 'runtime'
-              ? 'text-foreground border-b-2 border-foreground'
-              : 'text-text-muted hover:text-foreground'
-          }`}
+          className={`flex-1 py-3 text-center font-medium cursor-pointer transition-all ${activeTab === 'runtime'
+              ? 'text-white border-b-2 border-white'
+              : 'text-text-muted hover:text-white'
+            }`}
         >
           Runtime
         </button>
