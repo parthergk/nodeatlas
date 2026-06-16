@@ -77,8 +77,8 @@ Ensure you have [Node.js](https://nodejs.org/) installed (v18 or higher is recom
 ### 1. Clone & Install Dependencies
 Clone the repository, navigate into the project root directory, and install npm modules:
 ```bash
-git clone https://github.com/parthergk/app-graph-builder.git
-cd app-graph-builder
+git clone https://github.com/parthergk/nodeatlas.git
+cd nodeatlas
 npm install
 ```
 
